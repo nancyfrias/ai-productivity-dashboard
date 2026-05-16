@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Productivity Dashboard
+
+AI Productivity Dashboard is a modern task management dashboard built with Next.js, React, TypeScript, Tailwind CSS, and Recharts.
+
+This project allows users to manage tasks, track progress, filter tasks by status, visualize productivity metrics, and switch between light and dark mode.
+
+## Features
+
+- Add new tasks
+- Edit existing tasks
+- Delete tasks
+- Change task status
+- Filter tasks by status
+- Dynamic productivity statistics
+- Data persistence with localStorage
+- Responsive design
+- Dark mode
+- Task analytics chart with Recharts
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Recharts
+- Git
+- GitHub
+
+## Screenshots
+
+_Add screenshots here after deployment._
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
