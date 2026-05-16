@@ -35,6 +35,13 @@ _Add screenshots here after deployment._
 
 To run this project locally:
 
+## Author
+
+Nancy Johana Frías Romero
+
+GitHub:
+https://github.com/nancyfrias
+
 ```bash
 npm install
 npm run dev
