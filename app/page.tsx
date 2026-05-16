@@ -242,7 +242,7 @@ const filteredTasks =
   </div>
 </div>
 
-        {/* Add Task */}
+{/* Add Task */}
 
 <div
   className={
@@ -263,7 +263,7 @@ const filteredTasks =
       className={
         darkMode
           ? "flex-1 border border-gray-600 bg-gray-700 text-white placeholder-gray-300 rounded-lg p-3"
-          : "flex-1 border rounded-lg p-3"
+          : "flex-1 border rounded-lg p-3 text-black"
       }
       value={newTask}
       onChange={(e) => setNewTask(e.target.value)}
@@ -281,115 +281,121 @@ const filteredTasks =
 </div>
 
         {/* Recent Tasks */}
+
+<div
+  className={
+    darkMode
+      ? "bg-gray-800 rounded-2xl shadow-md p-6 mt-10 text-white"
+      : "bg-white rounded-2xl shadow-md p-6 mt-10 text-gray-900"
+  }
+>
+  <h2 className="text-2xl font-bold mb-6">
+    Recent Tasks
+  </h2>
+
+  <div className="flex flex-wrap gap-3 mb-6">
+    {["All", "Pending", "In Progress", "Completed"].map((status) => (
+      <button
+        key={status}
+        onClick={() => setFilter(status)}
         className={
-  darkMode
-    ? "bg-gray-800 rounded-2xl shadow-md p-6 mt-10 text-white"
-    : "bg-white rounded-2xl shadow-md p-6 mt-10 text-gray-900"
-}
+          filter === status
+            ? "bg-blue-600 text-white px-4 py-2 rounded-lg"
+            : "bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300"
+        }
+      >
+        {status}
+      </button>
+    ))}
+  </div>
 
-          <h2 className="text-2xl font-bold mb-6">
-            Recent Tasks
-          </h2>
+  <div className="space-y-4">
 
-          <div className="flex flex-wrap gap-3 mb-6">
-  {["All", "Pending", "In Progress", "Completed"].map((status) => (
-    <button
-      key={status}
-      onClick={() => setFilter(status)}
-      className={
-        filter === status
-          ? "bg-blue-600 text-white px-4 py-2 rounded-lg"
-          : "bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300"
-      }
-    >
-      {status}
-    </button>
-  ))}
-</div>
+    {filteredTasks.map((task, index) => (
 
-          <div className="space-y-4">
+      <div
+        key={index}
+        className="flex flex-col md:flex-row md:justify-between md:items-center border-b pb-3 gap-4"
+      >
 
-            {filteredTasks.map((task, index) => (
+        <div className="flex items-center gap-4 flex-wrap">
 
-              <div
-                key={index}
-                className="flex flex-col md:flex-row md:justify-between md:items-center border-b pb-3 gap-4"
-              >
+          {editingIndex === index ? (
+            <input
+              type="text"
+              className={
+                darkMode
+                  ? "border border-gray-600 bg-gray-700 text-white rounded-lg p-2"
+                  : "border rounded-lg p-2"
+              }
+              value={editingText}
+              onChange={(e) => setEditingText(e.target.value)}
+            />
+          ) : (
+            <p>{task.name}</p>
+          )}
 
-                <div className="flex items-center gap-4">
+          <button
+            onClick={() => {
 
-  {editingIndex === index ? (
-  <input
-    type="text"
-    className="border rounded-lg p-2"
-    value={editingText}
-    onChange={(e) => setEditingText(e.target.value)}
-  />
-) : (
-  <p>{task.name}</p>
-)}
+              const updatedTasks = tasks.filter(
+                (_, taskIndex) => taskIndex !== index
+              );
 
-  <button
-    onClick={() => {
+              setTasks(updatedTasks);
+            }}
+            className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
+          >
+            Delete
+          </button>
 
-      const updatedTasks = tasks.filter(
-        (_, taskIndex) => taskIndex !== index
-      );
+          <button
+            onClick={() => {
+              setEditingIndex(index);
+              setEditingText(task.name);
+            }}
+            className="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600"
+          >
+            Edit
+          </button>
 
-      setTasks(updatedTasks);
-    }}
-    className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
-  >
-    Delete
-  </button>
+          {editingIndex === index && (
+            <button
+              onClick={updateTask}
+              className="bg-green-600 text-white px-3 py-1 rounded-lg hover:bg-green-700"
+            >
+              Save
+            </button>
+          )}
 
-  <button
-  onClick={() => {
-    setEditingIndex(index);
-    setEditingText(task.name);
-  }}
-  className="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600"
->
-  Edit
-</button>
-
-{editingIndex === index && (
-  <button
-    onClick={updateTask}
-    className="bg-green-600 text-white px-3 py-1 rounded-lg hover:bg-green-700"
-  >
-    Save
-  </button>
-)}
-
-<button
-  onClick={() => changeTaskStatus(index)}
-  className="bg-purple-600 text-white px-3 py-1 rounded-lg hover:bg-purple-700"
->
-  Change Status
-</button>
-
-</div>
-
-                <span
-                  className={
-                    task.status === "Completed"
-                      ? "text-green-600 font-semibold"
-                      : task.status === "In Progress"
-                      ? "text-yellow-500 font-semibold"
-                      : "text-red-500 font-semibold"
-                  }
-                >
-                  {task.status}
-                </span>
-
-              </div>
-
-            ))}
-
-          </div>
+          <button
+            onClick={() => changeTaskStatus(index)}
+            className="bg-purple-600 text-white px-3 py-1 rounded-lg hover:bg-purple-700"
+          >
+            Change Status
+          </button>
 
         </div>
+
+        <span
+          className={
+            task.status === "Completed"
+              ? "text-green-600 font-semibold"
+              : task.status === "In Progress"
+              ? "text-yellow-500 font-semibold"
+              : "text-red-500 font-semibold"
+          }
+        >
+          {task.status}
+        </span>
+
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
 
       </section>
 
