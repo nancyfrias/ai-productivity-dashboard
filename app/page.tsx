@@ -216,7 +216,13 @@ const filteredTasks =
 
         </div>
 
-        <div className="bg-white rounded-2xl shadow-md p-6 mt-10">
+        <div
+  className={
+    darkMode
+      ? "bg-gray-800 rounded-2xl shadow-md p-6 mt-10 text-white"
+      : "bg-white rounded-2xl shadow-md p-6 mt-10 text-gray-900"
+  }
+>
   <h2 className="text-2xl font-bold mb-6">
     Task Analytics
   </h2>
@@ -237,36 +243,49 @@ const filteredTasks =
 </div>
 
         {/* Add Task */}
-       
-        <div className="bg-white rounded-2xl shadow-md p-6 mt-10">
 
-          <h2 className="text-2xl font-bold mb-4">
-            Add New Task
-          </h2>
+<div
+  className={
+    darkMode
+      ? "bg-gray-800 rounded-2xl shadow-md p-6 mt-10 text-white"
+      : "bg-white rounded-2xl shadow-md p-6 mt-10 text-gray-900"
+  }
+>
+  <h2 className="text-2xl font-bold mb-4">
+    Add New Task
+  </h2>
 
-          <div className="flex flex-col md:flex-row gap-4">
+  <div className="flex flex-col md:flex-row gap-4">
 
-            <input
-              type="text"
-              placeholder="Write a new task..."
-              className="flex-1 border rounded-lg p-3"
-              value={newTask}
-              onChange={(e) => setNewTask(e.target.value)}
-            />
+    <input
+      type="text"
+      placeholder="Write a new task..."
+      className={
+        darkMode
+          ? "flex-1 border border-gray-600 bg-gray-700 text-white placeholder-gray-300 rounded-lg p-3"
+          : "flex-1 border rounded-lg p-3"
+      }
+      value={newTask}
+      onChange={(e) => setNewTask(e.target.value)}
+    />
 
-            <button
-              onClick={addTask}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
-            >
-              Add
-            </button>
+    <button
+      onClick={addTask}
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+    >
+      Add
+    </button>
 
-          </div>
+  </div>
 
-        </div>
+</div>
 
         {/* Recent Tasks */}
-        <div className="bg-white rounded-2xl shadow-md p-6 mt-10">
+        className={
+  darkMode
+    ? "bg-gray-800 rounded-2xl shadow-md p-6 mt-10 text-white"
+    : "bg-white rounded-2xl shadow-md p-6 mt-10 text-gray-900"
+}
 
           <h2 className="text-2xl font-bold mb-6">
             Recent Tasks
