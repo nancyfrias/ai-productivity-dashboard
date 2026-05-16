@@ -29,11 +29,28 @@ This project allows users to manage tasks, track progress, filter tasks by statu
 
 ## Screenshots
 
-_Add screenshots here after deployment._
+### Light Mode
+![Light Mode](public/Screenshots/dashboard-light.png)
+![Light Mode](public/Screenshots/dashboard-light-2.png)
+
+### Dark Mode
+![Dark Mode](public/Screenshots/dashboard-dark.png)
+![Dark Mode](public/Screenshots/dashboard-dark-2.png)
+
+### Mobile View
+![Mobile View](public/Screenshots/mobile-view.png)
+
+### Mobile Dark Mode
+![Mobile Dark Mode](public/Screenshots/mobile-view-dark-mode.png)
 
 ## Getting Started
 
 To run this project locally:
+
+```bash
+npm install
+npm run dev
+```
 
 ## Author
 
@@ -41,8 +58,3 @@ Nancy Johana Frías Romero
 
 GitHub:
 https://github.com/nancyfrias
-
-```bash
-npm install
-npm run dev
-```
