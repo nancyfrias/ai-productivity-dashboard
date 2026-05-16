@@ -258,16 +258,16 @@ const filteredTasks =
   <div className="flex flex-col md:flex-row gap-4">
 
     <input
-      type="text"
-      placeholder="Write a new task..."
-      className={
-        darkMode
-          ? "flex-1 border border-gray-600 bg-gray-700 text-white placeholder-gray-300 rounded-lg p-3"
-          : "flex-1 border rounded-lg p-3 text-black"
-      }
-      value={newTask}
-      onChange={(e) => setNewTask(e.target.value)}
-    />
+  type="text"
+  placeholder="Add New Task"
+  value={newTask}
+  onChange={(e) => setNewTask(e.target.value)}
+  className={
+    darkMode
+      ? "flex-1 p-4 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-300"
+      : "flex-1 p-4 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500"
+  }
+/>
 
     <button
       onClick={addTask}
